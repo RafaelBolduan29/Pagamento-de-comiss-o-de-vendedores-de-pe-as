@@ -1,0 +1,49 @@
+    import java.util.Scanner;
+
+    public class Main {
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            // Leitura dos dados do vendedor
+            System.out.print("Identificação do vendedor: ");
+            String identificacaoVendedor = scanner.nextLine();
+
+            System.out.print("Código da peça: ");
+            String codigoPeca = scanner.nextLine();
+
+            System.out.print("Preço unitário da peça: ");
+            double precoUnitario = scanner.nextDouble();
+
+            System.out.print("Quantidade vendida: ");
+            int quantidadeVendida = scanner.nextInt();
+
+            // Cálculo do total da venda
+            double totalVenda = calcularTotalVenda(precoUnitario, quantidadeVendida);
+
+            // Cálculo da comissão
+            double comissao = calcularComissao(totalVenda);
+
+            // Exibição do resultado
+            exibirResultados(identificacaoVendedor, codigoPeca, totalVenda, comissao);
+        }
+
+        // Método para calcular o total da venda
+        public static double calcularTotalVenda(double precoUnitario, int quantidadeVendida) {
+            return precoUnitario * quantidadeVendida;
+        }
+
+        // Método para calcular a comissão
+        public static double calcularComissao(double totalVenda) {
+            return totalVenda * 0.05; // 5% de comissão
+        }
+
+        // Método para exibir os resultados
+        public static void exibirResultados(String identificacaoVendedor, String codigoPeca, double totalVenda, double comissao) {
+            System.out.println("\n--- Resultados da Venda ---");
+            System.out.println("Identificação do vendedor: " + identificacaoVendedor);
+            System.out.println("Código da peça: " + codigoPeca);
+            System.out.printf("Total da venda: R$ %.2f\n", totalVenda);
+            System.out.printf("Comissão do vendedor: R$ %.2f\n", comissao);
+        }
+}
